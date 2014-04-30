@@ -14,8 +14,9 @@ AlarmClockTest >> setUp [
 ]
 
 { #category : #tests }
-AlarmClockTest >> test01InitialTime [
+AlarmClockTest >> test01InitialState [
 
+	self assert: clock limitTime > 0 seconds.
 	self assert: clock elapsedTime equals: 0 seconds.
 	self deny: clock finished.
 	
