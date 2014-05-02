@@ -1,5 +1,5 @@
 "
-I represent a clock with limit time. 
+TODO
 "
 Class {
 	#name : #AlarmClock,
