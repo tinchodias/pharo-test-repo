@@ -16,9 +16,7 @@ AlarmClockTest >> setUp [
 { #category : #tests }
 AlarmClockTest >> test01InitialState [
 
-	self assert: clock limitTime > 0 seconds.
-	self assert: clock elapsedTime equals: 0 seconds.
-	self deny: clock finished.
+	self assert: clock elapsedTime equals: 0 minutes.
 	
 ]
 
@@ -28,14 +26,21 @@ AlarmClockTest >> test02PassSomeTime [
 	clock pass: 10 minutes.
 
 	self assert: clock elapsedTime equals: 10 minutes.
-	self deny: clock finished.
 	
+	clock pass: 5 minutes.
+
+	self assert: clock elapsedTime equals: 15 minutes.
+
 ]
 
 { #category : #tests }
 AlarmClockTest >> test03PassLimitTime [
 
-	clock pass: clock limitTime.
+	clock limitTime: 25 minutes.
+
+	self deny: clock finished.
+
+	clock pass: 25 minutes.
 
 	self assert: clock finished.
 	
@@ -44,11 +49,12 @@ AlarmClockTest >> test03PassLimitTime [
 { #category : #tests }
 AlarmClockTest >> test04AdjustLimitTime [
 
-	clock pass: clock limitTime.
+	clock limitTime: 25 minutes.
+	clock pass: 25 minutes.
 
 	self assert: clock finished.
 
-	clock limitTime: clock limitTime * 2.
+	clock limitTime: 42 minutes.
 
 	self deny: clock finished.
 	
