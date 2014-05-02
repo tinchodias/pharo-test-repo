@@ -1,11 +1,12 @@
 "
-TODO
+I represent a clock.
 "
 Class {
 	#name : #AlarmClock,
 	#superclass : #Object,
 	#instVars : [
-		'elapsedTime'
+		'elapsedTime',
+		'limitTime'
 	],
 	#category : #AlarmClock
 }
@@ -16,6 +17,12 @@ AlarmClock >> elapsedTime [
 	^ elapsedTime
 ]
 
+{ #category : #testing }
+AlarmClock >> finished [
+	
+	^ elapsedTime >= limitTime
+]
+
 { #category : #initialization }
 AlarmClock >> initialize [
 
@@ -24,7 +31,13 @@ AlarmClock >> initialize [
 ]
 
 { #category : #updating }
+AlarmClock >> limitTime: aDuration [ 
+	
+	limitTime := aDuration
+]
+
+{ #category : #updating }
 AlarmClock >> pass: someTime [
 
-	elapsedTime := someTime
+	elapsedTime := elapsedTime + someTime
 ]
