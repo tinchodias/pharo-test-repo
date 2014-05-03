@@ -1,5 +1,5 @@
 "
-I represent a clock.
+I am a clock.
 "
 Class {
 	#name : #AlarmClock,
@@ -20,7 +20,7 @@ AlarmClock >> elapsedTime [
 { #category : #testing }
 AlarmClock >> finished [
 	
-	^ elapsedTime >= limitTime
+	^ elapsedTime >= limitTime 
 ]
 
 { #category : #initialization }
@@ -30,7 +30,7 @@ AlarmClock >> initialize [
 
 ]
 
-{ #category : #updating }
+{ #category : #accessing }
 AlarmClock >> limitTime: aDuration [ 
 	
 	limitTime := aDuration
