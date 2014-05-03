@@ -44,3 +44,15 @@ AlarmClockTest >> test03LimitTime [
 	
 	self assert: clock finished.
 ]
+
+{ #category : #tests }
+AlarmClockTest >> test04AdjustLimitTime [
+
+	clock pass: 25 minutes.
+	
+	self assert: clock finished.
+	
+	clock limitTime: 42 minutes.
+	
+	self deny: clock finished.
+]
