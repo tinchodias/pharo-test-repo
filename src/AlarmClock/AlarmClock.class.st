@@ -12,6 +12,12 @@ Class {
 }
 
 { #category : #accessing }
+AlarmClock >> defaultLimitTime [
+
+	^ 25 minutes
+]
+
+{ #category : #accessing }
 AlarmClock >> elapsedTime [
 	
 	^ elapsedTime
@@ -27,7 +33,7 @@ AlarmClock >> finished [
 AlarmClock >> initialize [
 
 	elapsedTime := 0 minutes.
-
+	limitTime := self defaultLimitTime.
 ]
 
 { #category : #accessing }
