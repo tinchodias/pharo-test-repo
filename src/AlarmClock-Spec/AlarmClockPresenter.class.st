@@ -15,8 +15,10 @@ Class {
 { #category : #specs }
 AlarmClockPresenter class >> defaultSpec [
 	^ SpBoxLayout newVertical
-		add: #elapsedTimeLabel;
-		add: #finishedLabel;
+		add: #elapsedTimeLabel
+			withConstraints: [ :constraints | constraints height: self labelHeight ];
+		add: #finishedLabel
+			withConstraints: [ :constraints | constraints height: self labelHeight ];
 		yourself
 ]
 
