@@ -16,7 +16,7 @@ AlarmClockTest >> setUp [
 { #category : #tests }
 AlarmClockTest >> test01InitialState [
 
-	self assert: clock elapsedTime equals: 0 minutes.
+	self assert: clock elapsedTime isZero.
 	
 ]
 
@@ -27,9 +27,9 @@ AlarmClockTest >> test02PassSomeTime [
 
 	self assert: clock elapsedTime equals: 10 minutes.
 	
-	clock pass: 2 minutes.
+	clock pass: 7 seconds.
 
-	self assert: clock elapsedTime equals: 12 minutes.
+	self assert: clock elapsedTime equals: 17 secnods.
 	
 ]
 
